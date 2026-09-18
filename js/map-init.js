@@ -525,12 +525,12 @@ function setGesat3DMode(
             visibility: GESAT_CONFIG.visibility.sentinel2025 ? "visible" : "none"
           },
           paint: {
-            "raster-opacity": 1.0
+            "raster-opacity": 1.0,
 
             // ==================================================
             // 【追記】淡い画像をクッキリ・鮮やかにする補正
             // ==================================================
-            // "raster-contrast": 0.30,        // コントラストを上げる（-1.0 〜 1.0, 既定値0）
+            "raster-contrast": 0.30        // コントラストを上げる（-1.0 〜 1.0, 既定値0）
             // "raster-brightness-max": 0.80,  // 明るさの上限を絞って白飛びを抑える（0 〜 1, 既定値1）
             // "raster-saturation": 0.20       // 彩度を少し上げて緑や土の色を鮮やかに（-1.0 〜 1.0, 既定値0）
 
