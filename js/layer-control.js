@@ -67,6 +67,28 @@ function createGesatLayerControl() {
         </label>
         
         <div class="gesat-section">
+          Sentinel-2 Imagery (COG)
+        </div>
+
+        <div class="gesat-children">
+          <div class="gesat-control-row" style="margin-bottom: 6px;">
+            <label style="display: inline-block; width: 140px;">
+              <input type="checkbox" id="chk-s2-2025">
+              Sentinel-2 (2025)
+            </label>
+            <input type="range" id="sld-s2-2025" min="0" max="100" value="100" style="width: 80px; vertical-align: middle;">
+          </div>
+
+          <div class="gesat-control-row">
+            <label style="display: inline-block; width: 140px;">
+              <input type="checkbox" id="chk-s2-2026">
+              Sentinel-2 (2026)
+            </label>
+            <input type="range" id="sld-s2-2026" min="0" max="100" value="100" style="width: 80px; vertical-align: middle;">
+          </div>
+        </div>
+
+        <div class="gesat-section">
           Reference overlays
         </div>
 
@@ -206,7 +228,66 @@ function createGesatLayerControl() {
         </div>
       `;
 
+      /*
+       * Sentinel-2 COG Controls
+       */
+      const s2_2025_check = container.querySelector("#chk-s2-2025");
+      const s2_2025_slide = container.querySelector("#sld-s2-2025");
+      const s2_2026_check = container.querySelector("#chk-s2-2026");
+      const s2_2026_slide = container.querySelector("#sld-s2-2026");
 
+      // 2025年版初期設定
+      if (s2_2025_check) {
+        s2_2025_check.checked = Boolean(GESAT_CONFIG.visibility.sentinel2025);
+        s2_2025_check.addEventListener("change", function () {
+          GESAT_CONFIG.visibility.sentinel2025 = s2_2025_check.checked;
+          if (map.getLayer("sentinel-2025-layer")) {
+            map.setLayoutProperty(
+              "sentinel-2025-layer",
+              "visibility",
+              s2_2025_check.checked ? "visible" : "none"
+            );
+          }
+        });
+      }
+      if (s2_2025_slide) {
+        s2_2025_slide.addEventListener("input", function () {
+          if (map.getLayer("sentinel-2025-layer")) {
+            map.setPaintProperty(
+              "sentinel-2025-layer",
+              "raster-opacity",
+              parseFloat(s2_2025_slide.value) / 100
+            );
+          }
+        });
+      }
+
+      // 2026年版初期設定
+      if (s2_2026_check) {
+        s2_2026_check.checked = Boolean(GESAT_CONFIG.visibility.sentinel2026);
+        s2_2026_check.addEventListener("change", function () {
+          GESAT_CONFIG.visibility.sentinel2026 = s2_2026_check.checked;
+          if (map.getLayer("sentinel-2026-layer")) {
+            map.setLayoutProperty(
+              "sentinel-2026-layer",
+              "visibility",
+              s2_2026_check.checked ? "visible" : "none"
+            );
+          }
+        });
+      }
+      if (s2_2026_slide) {
+        s2_2026_slide.addEventListener("input", function () {
+          if (map.getLayer("sentinel-2026-layer")) {
+            map.setPaintProperty(
+              "sentinel-2026-layer",
+              "raster-opacity",
+              parseFloat(s2_2026_slide.value) / 100
+            );
+          }
+        });
+      }
+      
       /*
        * Base maps
        */
