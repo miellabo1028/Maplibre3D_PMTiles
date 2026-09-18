@@ -429,6 +429,16 @@ function setGesat3DMode(
       protocol.tile
     );
 
+    // ==================================================
+    // 【追加①】COG (Cloud Optimized GeoTIFF) プロトコルの登録
+    // ==================================================
+    if (typeof maplibreglcog !== "undefined") {
+      maplibregl.addProtocol(
+        "cog",
+        maplibreglcog.cogProtocol
+      );
+    }
+    
     /*
      * MapLibre map
      */
@@ -493,6 +503,46 @@ function setGesat3DMode(
     map.on(
       "load",
       function () {
+        // ==================================================
+        // 【追加②】Sentinel-2 COG レイヤの追加
+        // ==================================================
+        
+        // --- 2025年版 ---
+        map.addSource("sentinel-2025-source", {
+          type: "raster",
+          tiles: [`cog://${GESAT_CONFIG.data.sentinel2025}/{z}/{x}/{y}`],
+          tileSize: 256
+        });
+        map.addLayer({
+          id: "sentinel-2025-layer",
+          type: "raster",
+          source: "sentinel-2025-source",
+          layout: {
+            visibility: GESAT_CONFIG.visibility.sentinel2025 ? "visible" : "none"
+          },
+          paint: {
+            "raster-opacity": 1.0
+          }
+        });
+
+        // --- 2026年版 ---
+        map.addSource("sentinel-2026-source", {
+          type: "raster",
+          tiles: [`cog://${GESAT_CONFIG.data.sentinel2026}/{z}/{x}/{y}`],
+          tileSize: 256
+        });
+        map.addLayer({
+          id: "sentinel-2026-layer",
+          type: "raster",
+          source: "sentinel-2026-source",
+          layout: {
+            visibility: GESAT_CONFIG.visibility.sentinel2026 ? "visible" : "none"
+          },
+          paint: {
+            "raster-opacity": 1.0
+          }
+        });
+        
         /* 3D builings and DEM*/
         addGesat3DData(map);
         
