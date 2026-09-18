@@ -13,7 +13,7 @@ const GESAT_CONFIG = {
     administrativeNames: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/administrative_boundaries.pmtiles",
     
     sentinel2025: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/s2_Tarija_RGB_2025_mosaic_3857.tif",
-    sentinel2026: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/s2_Tarija_RGB_2026_mosaic_3857.tif"
+    sentinel2026: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/s2_Tarija_RGB_2026_mosaic_3857r2.tif"
   },
 
   sourceLayers: {
