@@ -432,11 +432,12 @@ function setGesat3DMode(
     // ==================================================
     // 【追加①】COG (Cloud Optimized GeoTIFF) プロトコルの登録
     // ==================================================
-    if (typeof maplibreCogProtocol !== "undefined") {
+    if (typeof MaplibreCOGProtocol !== "undefined") {
       maplibregl.addProtocol(
         "cog",
-        maplibrecogProtocol.cogProtocol
+        MaplibreCOGProtocol.cogProtocol
       );
+      console.log("COG protocol successfully registerd with MapLibre");
     } else {
       console.error("maplibreCogProtocol library is not loaded properly,");
       
