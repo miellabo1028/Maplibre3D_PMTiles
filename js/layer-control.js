@@ -71,20 +71,20 @@ function createGesatLayerControl() {
         </div>
 
         <div class="gesat-children">
-          <div class="gesat-control-row" style="margin-bottom: 6px;">
-            <label style="display: inline-block; width: 140px;">
+          <div style="margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+            <label style="cursor: pointer; flex-grow: 1;">
               <input type="checkbox" id="chk-s2-2025">
               Sentinel-2 (2025)
             </label>
-            <input type="range" id="sld-s2-2025" min="0" max="100" value="100" style="width: 80px; vertical-align: middle;">
+            <input type="range" id="sld-s2-2025" min="0" max="100" value="100" style="width: 80px; margin-left: 10px;">
           </div>
 
-          <div class="gesat-control-row">
-            <label style="display: inline-block; width: 140px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <label style="cursor: pointer; flex-grow: 1;">
               <input type="checkbox" id="chk-s2-2026">
               Sentinel-2 (2026)
             </label>
-            <input type="range" id="sld-s2-2026" min="0" max="100" value="100" style="width: 80px; vertical-align: middle;">
+            <input type="range" id="sld-s2-2026" min="0" max="100" value="100" style="width: 80px; margin-left: 10px;">
           </div>
         </div>
 
