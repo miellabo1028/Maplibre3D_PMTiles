@@ -525,7 +525,7 @@ function setGesat3DMode(
             visibility: GESAT_CONFIG.visibility.sentinel2025 ? "visible" : "none"
           },
           paint: {
-            "raster-opacity": 1.0
+            "raster-opacity": 1.0,
                         
             // ==================================================
             // 【追記】淡い画像をクッキリ・鮮やかにする補正
