@@ -10,7 +10,10 @@ const GESAT_CONFIG = {
     boliviaBasemap: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/bolivia_basemap.pmtiles",
     protectedAreas: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/protected_areas.pmtiles",
     administrativeBoundaryLines: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/administrative_boundaries_pl.pmtiles",
-    administrativeNames: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/administrative_boundaries.pmtiles"
+    administrativeNames: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/administrative_boundaries.pmtiles",
+    
+    sentinel2025: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/s2_Tarija_RGB_2025_mosaic_3857.tif",
+    sentinel2026: "https://pub-d44086fa57624870a3a45a6fd01ea211.r2.dev/s2_Tarija_RGB_2026_mosaic_3857.tif"
   },
 
   sourceLayers: {
@@ -78,7 +81,10 @@ const GESAT_CONFIG = {
     distrito: true,
     departamentoName: true,
     provinciaName: true,
-    distritoName: true
+    distritoName: true,
+
+    sentinel2025: false,
+    sentinel2026: false
   },
 
   /* 3D modelling */
