@@ -86,7 +86,7 @@ const GESAT_CONFIG = {
 
     sentinel2025: false,
     sentinel2026: false,
-    sentinel2026sc: false
+    sentinel2025sc: false
   },
 
   /* 3D modelling */
