@@ -86,6 +86,14 @@ function createGesatLayerControl() {
             </label>
             <input type="range" id="sld-s2-2026" min="0" max="100" value="100" style="width: 80px; margin-left: 10px;">
           </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <label style="cursor: pointer; flex-grow: 1;">
+              <input type="checkbox" id="chk-s2-2025sc">
+              Sentinel-2 (2025 SC)
+            </label>
+            <input type="range" id="sld-s2-2025sc" min="0" max="100" value="100" style="width: 80px; margin-left: 10px;">
+          </div>
         </div>
 
         <div class="gesat-section">
@@ -235,6 +243,8 @@ function createGesatLayerControl() {
       const s2_2025_slide = container.querySelector("#sld-s2-2025");
       const s2_2026_check = container.querySelector("#chk-s2-2026");
       const s2_2026_slide = container.querySelector("#sld-s2-2026");
+      const s2_2025sc_check = container.querySelector("#chk-s2-2025sc");
+      const s2_2025sc_slide = container.querySelector("#sld-s2-2025sc");
 
       // 2025年版初期設定
       if (s2_2025_check) {
@@ -283,6 +293,32 @@ function createGesatLayerControl() {
               "sentinel-2026-layer",
               "raster-opacity",
               parseFloat(s2_2026_slide.value) / 100
+            );
+          }
+        });
+      }
+      
+      // 2025年SC版初期設定 ここから追加
+      if (s2_2025sc_check) {
+        s2_2025sc_check.checked = Boolean(GESAT_CONFIG.visibility.sentinel2025sc);
+        s2_2025sc_check.addEventListener("change", function () {
+          GESAT_CONFIG.visibility.sentinel2025sc = s2_2025sc_check.checked;
+          if (map.getLayer("sentinel-2025sc-layer")) {
+            map.setLayoutProperty(
+              "sentinel-2025sc-layer",
+              "visibility",
+              s2_2025sc_check.checked ? "visible" : "none"
+            );
+          }
+        });
+      }
+      if (s2_2025sc_slide) {
+        s2_2025sc_slide.addEventListener("input", function () {
+          if (map.getLayer("sentinel-2025sc-layer")) {
+            map.setPaintProperty(
+              "sentinel-2025sc-layer",
+              "raster-opacity",
+              parseFloat(s2_2025sc_slide.value) / 100
             );
           }
         });
