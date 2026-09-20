@@ -556,6 +556,27 @@ function setGesat3DMode(
           }
         });
         
+        // --- 2025年SC（Santa Cruz）版 ---
+        map.addSource("sentinel-2025sc-source", {
+          type: "raster",
+          tiles: [`cog://${GESAT_CONFIG.data.sentinel2025sc}/{z}/{x}/{y}`],
+          tileSize: 256
+        });
+        map.addLayer({
+          id: "sentinel-2025sc-layer",
+          type: "raster",
+          source: "sentinel-2025sc-source",
+          layout: {
+            visibility: GESAT_CONFIG.visibility.sentinel2025sc ? "visible" : "none"
+          },
+          paint: {
+            "raster-opacity": 1.0,
+            // 2025年通常版と同様に、お好みでコントラスト等の調整を入れても綺麗になります
+            "raster-contrast": 0.15,
+            "raster-brightness-max": 0.9
+          }
+        });
+        
         /* 3D builings and DEM*/
         addGesat3DData(map);
         
