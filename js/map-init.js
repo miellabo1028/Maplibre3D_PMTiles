@@ -536,7 +536,7 @@ function setGesat3DMode(
             // "raster-saturation": 0.20       // 彩度を少し上げて緑や土の色を鮮やかに（-1.0 〜 1.0, 既定値0）
 
           }
-        });
+        }, "bolivia-water-fill");
 
         // --- 2026年版 ---
         map.addSource("sentinel-2026-source", {
@@ -554,7 +554,7 @@ function setGesat3DMode(
           paint: {
             "raster-opacity": 1.0
           }
-        });
+        }, "bolivia-water-fill");
         
         // --- 2025年SC（Santa Cruz）版 ---
         map.addSource("sentinel-2025sc-source", {
@@ -575,7 +575,7 @@ function setGesat3DMode(
             "raster-contrast": 0.15,
             "raster-brightness-max": 0.9
           }
-        });
+        }, "bolivia-water-fill");
         
         /* 3D builings and DEM*/
         addGesat3DData(map);
